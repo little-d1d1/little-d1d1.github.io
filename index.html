@@ -13,11 +13,13 @@
 <div>
     <div id="output1" style="display: inline-block;"></div>
     <button onclick="copyFirstOutput()">复制tng结果</button>
+    <button onclick="redirectToFirstOutput()">跳转到tng</button>
 </div>
 <br>
 <div>
     <div id="output2" style="display: inline-block;"></div>
     <button onclick="copySecondOutput()">复制shopee结果</button>
+    <button onclick="redirectToSecondOutput()">跳转到shopee</button>
 </div>
 
 <script>
@@ -41,6 +43,16 @@ function copySecondOutput() {
     navigator.clipboard.writeText(outputText)
         .then(() => alert("shopee结果已复制"))
         .catch(err => console.error('无法复制shopee结果：', err));
+}
+
+function redirectToFirstOutput() {
+    var outputText = document.getElementById("output1").textContent;
+    window.location.href = outputText;
+}
+
+function redirectToSecondOutput() {
+    var outputText = document.getElementById("output2").textContent;
+    window.location.href = outputText;
 }
 </script>
 
