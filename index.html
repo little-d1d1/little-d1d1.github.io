@@ -59,11 +59,11 @@
 
     <div id="output1"></div>
     <button onclick="copyFirstOutput()">复制tng结果</button>
-    <button onclick="redirectToFirstOutput()">跳转到tng</button>
+    <button onclick="openFirstOutput()">在新窗口打开tng</button>
 
     <div id="output2"></div>
     <button onclick="copySecondOutput()">复制shopee结果</button>
-    <button onclick="redirectToSecondOutput()">跳转到shopee</button>
+    <button onclick="openSecondOutput()">在新窗口打开shopee</button>
 </div>
 
 <script>
@@ -89,14 +89,14 @@ function copySecondOutput() {
         .catch(err => console.error('无法复制shopee结果：', err));
 }
 
-function redirectToFirstOutput() {
+function openFirstOutput() {
     var outputText = document.getElementById("output1").textContent;
-    window.location.href = outputText;
+    window.open(outputText, "_blank");
 }
 
-function redirectToSecondOutput() {
+function openSecondOutput() {
     var outputText = document.getElementById("output2").textContent;
-    window.location.href = outputText;
+    window.open(outputText, "_blank");
 }
 </script>
 
