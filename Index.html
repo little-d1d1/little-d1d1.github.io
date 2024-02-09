@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>输入框示例</title>
+</head>
+<body>
+
+<label for="inputText">输入内容：</label>
+<input type="text" id="inputText" oninput="showCombinedStrings()">
+
+<div>
+    <div id="output1" style="display: inline-block;"></div>
+    <button onclick="copyFirstOutput()">复制tng结果</button>
+</div>
+<br>
+<div>
+    <div id="output2" style="display: inline-block;"></div>
+    <button onclick="copySecondOutput()">复制shopee结果</button>
+</div>
+
+<script>
+function showCombinedStrings() {
+    var input = document.getElementById("inputText").value;
+    var outputDiv1 = document.getElementById("output1");
+    var outputDiv2 = document.getElementById("output2");
+    outputDiv1.textContent = "https://link.tngdigital.com.my/" + input;
+    outputDiv2.textContent = "https://sppay.shopee.com.my/angbao/" + input;
+}
+
+function copyFirstOutput() {
+    var outputText = document.getElementById("output1").textContent;
+    navigator.clipboard.writeText(outputText)
+        .then(() => alert("tng结果已复制"))
+        .catch(err => console.error('无法复制tng结果：', err));
+}
+
+function copySecondOutput() {
+    var outputText = document.getElementById("output2").textContent;
+    navigator.clipboard.writeText(outputText)
+        .then(() => alert("shopee结果已复制"))
+        .catch(err => console.error('无法复制shopee结果：', err));
+}
+</script>
+
+</body>
+</html>
